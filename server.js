@@ -41,6 +41,6 @@ app.get("/logout", steam.enforceLogin("/"), function (req, res) {
   res.redirect("/");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("✅ Сервер запущен: http://localhost:3000");
 });
