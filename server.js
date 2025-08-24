@@ -16,7 +16,7 @@ app.use(
 );
 app.use(
   steam.middleware({
-    realm: `${process.env.BASE_URL}:${process.env.PORT}`,
+    realm: `${process.env.BASE_URL}`,
     verify: `${process.env.BASE_URL}/verify`,
     apiKey: `${process.env.STEAM_API_KEY}`,
   })
