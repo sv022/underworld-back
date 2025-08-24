@@ -23,7 +23,7 @@ app.use(
 );
 
 app.get("/", function (req, res) {
-  res.redirect("/verify");
+  res.redirect(process.env.CLIENT_BASE_URL);
 });
 
 app.get("/authenticate", steam.authenticate(), function (req, res) {
