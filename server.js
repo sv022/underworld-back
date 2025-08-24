@@ -23,9 +23,7 @@ app.use(
 );
 
 app.get("/", function (req, res) {
-  res
-    .send(req.user == null ? "not logged in" : "hello " + req.user.username)
-    .end();
+  res.redirect("/verify");
 });
 
 app.get("/authenticate", steam.authenticate(), function (req, res) {
