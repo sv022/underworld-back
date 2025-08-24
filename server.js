@@ -33,7 +33,7 @@ app.get("/authenticate", steam.authenticate(), function (req, res) {
 });
 
 app.get("/verify", steam.verify(), function (req, res) {
-  res.send("verified").end();
+  res.send(req.user).end();
 });
 
 app.get("/logout", steam.enforceLogin("/"), function (req, res) {
