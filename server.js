@@ -2,6 +2,8 @@ import express from "express";
 import steam from "steam-login";
 
 import express_session from "express-session";
+import dotenv from "dotenv";
+dotenv.config();
 
 var app = express();
 
@@ -14,9 +16,9 @@ app.use(
 );
 app.use(
   steam.middleware({
-    realm: "http://localhost:3000/",
-    verify: "http://localhost:3000/verify",
-    apiKey: process.argv[2],
+    realm: `${process.env.BASE_URL}:${process.env.PORT}`,
+    verify: `${process.env.BASE_URL}:${process.env.PORT}/verify`,
+    apiKey: `${process.env.STEAM_API_KEY}`,
   })
 );
 
