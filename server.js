@@ -31,7 +31,9 @@ app.get("/authenticate", steam.authenticate(), function (req, res) {
 });
 
 app.get("/verify", steam.verify(), function (req, res) {
-  res.send(req.user).end();
+  res.redirect(
+    process.env.CLIENT_BASE_URL + "/steam/callback" + "?" + req.params
+  );
 });
 
 app.get("/logout", steam.enforceLogin("/"), function (req, res) {
