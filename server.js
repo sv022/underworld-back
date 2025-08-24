@@ -7,6 +7,11 @@ dotenv.config();
 
 var app = express();
 
+function queryToString(query) {
+  const params = new URLSearchParams(query);
+  return params.toString() ? `?${params.toString()}` : "";
+}
+
 app.use(
   express_session({
     resave: false,
@@ -32,7 +37,7 @@ app.get("/authenticate", steam.authenticate(), function (req, res) {
 
 app.get("/verify", steam.verify(), function (req, res) {
   res.redirect(
-    process.env.CLIENT_BASE_URL + "/steam/callback" + "?" + req.params
+    process.env.CLIENT_BASE_URL + "/steam/callback" + queryToString(req.query)
   );
 });
 
