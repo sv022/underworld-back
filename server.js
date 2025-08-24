@@ -37,7 +37,14 @@ app.get("/authenticate", steam.authenticate(), function (req, res) {
 
 app.get("/verify", steam.verify(), function (req, res) {
   res.redirect(
-    process.env.CLIENT_BASE_URL + "/steam/callback" + queryToString(req.query)
+    process.env.CLIENT_BASE_URL +
+      "/steam/callback" +
+      "?steamid=" +
+      req.user.steamid +
+      "?username=" +
+      req.user.username +
+      "?profileurl=" +
+      req.user.profileurl
   );
 });
 
