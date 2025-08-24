@@ -44,7 +44,7 @@ app.get("/verify", steam.verify(), function (req, res) {
       "?username=" +
       req.user.username +
       "?profileurl=" +
-      req.user.profileurl
+      req.user.profile
   );
 });
 
