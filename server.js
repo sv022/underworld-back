@@ -41,9 +41,9 @@ app.get("/verify", steam.verify(), function (req, res) {
       "/steam/callback" +
       "?steamid=" +
       req.user.steamid +
-      "?username=" +
+      "&username=" +
       req.user.username +
-      "?profileurl=" +
+      "&profileurl=" +
       req.user.profile
   );
 });
